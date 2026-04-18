@@ -32,7 +32,7 @@ export const botConfig = {
         // Text users will see (example: "Playing !help | Titan Bot").
         name: "Made For 🍓",
         // Activity type number (0 = Playing).
-        type: 0, 
+        type: 5, 
       },
     ],
   },
@@ -362,7 +362,7 @@ export const botConfig = {
   // =========================
   welcome: {
     // Welcome template posted when a user joins.
-    // Placeholders: {user}, {server}, {memberCount}
+    // Placeholders: {user_name}, {server}, {memberCount}
     defaultWelcomeMessage:
       "Welcome {user} to {server}! We now have {memberCount} members!",
     // Goodbye template posted when a user leaves.
