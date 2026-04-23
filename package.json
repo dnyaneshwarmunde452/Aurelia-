@@ -1,12 +1,10 @@
 {
-  "name": "titanbot-custom",
+  "name": "discord-bot",
   "version": "1.0.0",
-
   "main": "src/app.js",
 
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node src/app.js"
   },
 
   "engines": {
@@ -15,8 +13,8 @@
 
   "dependencies": {
     "discord.js": "^14.14.1",
-    "@discordjs/voice": "^0.16.0"
-    "play-dl" "^1.9.6",
+    "@discordjs/voice": "^0.16.0",
+    "play-dl": "^1.9.6",
     "ffmpeg-static": "^5.2.0",
     "spotify-url-info": "^3.2.3",
     "node-fetch": "^2.6.7"
