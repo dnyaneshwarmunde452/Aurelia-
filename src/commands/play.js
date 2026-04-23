@@ -32,3 +32,49 @@ export default {
     message.channel.send(`🎶 Playing: ${query}`);
   }
 }
+if (message.content === '!stop') {
+  player.stop();
+  message.reply('⏹️ Stopped music');
+}
+if (message.content.startsWith('!play')) {
+  const args = message.content.split(' ').slice(1);
+  const query = args.join(' ');
+
+  if (!message.member.voice.channel) {
+    return message.reply('Join a voice channel first!');
+  }
+
+  const connection = joinVoiceChannel({
+    channelId: message.member.voice.channel.id,
+    guildId: message.guild.id,
+    adapterCreator: message.guild.voiceAdapterCreator
+  });
+
+  let stream;
+
+  // 🎵 YouTube / search
+  if (play.yt_validate(query) === 'video') {
+    stream = await play.stream(query);
+  } else {
+    const result = await play.search(query, { limit: 1 });
+    stream = await play.stream(result[0].url);
+  }
+
+  const resource = createAudioResource(stream.stream, {
+    inputType: stream.type
+  });
+
+  player.play(resource);
+  connection.subscribe(player);
+
+  message.reply(`🎶 Playing: ${query}`);
+}
+if (message.content === '!pause') {
+  player.pause();
+  message.reply('⏸️ Paused');
+}
+
+if (message.content === '!resume') {
+  player.unpause();
+  message.reply('▶️ Resumed');
+}
