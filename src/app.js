@@ -1,5 +1,6 @@
 ﻿import 'dotenv/config';
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
+import { Routes } from 'discord.js';
 import { REST } from '@discordjs/rest';
 import express from 'express';
 import cron from 'node-cron';
