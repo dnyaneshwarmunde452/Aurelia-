@@ -105,3 +105,34 @@ export async function execute(interaction) {
 
   interaction.editReply(`🎶 Added/Playing: ${query}`);
 }
+import { SlashCommandBuilder } from 'discord.js';
+import { player } from '../../music/manager.js';
+
+export const data = new SlashCommandBuilder()
+  .setName('pause')
+  .setDescription('Pause music');
+
+export async function execute(interaction) {
+  player.pause();
+  interaction.reply('⏸️ Paused');
+}import { SlashCommandBuilder } from 'discord.js';
+import { player } from '../../music/manager.js';
+
+export const data = new SlashCommandBuilder()
+  .setName('resume')
+  .setDescription('Resume music');
+
+export async function execute(interaction) {
+  player.unpause();
+  interaction.reply('▶️ Resumed');
+}import { SlashCommandBuilder } from 'discord.js';
+import { player } from '../../music/manager.js';
+
+export const data = new SlashCommandBuilder()
+  .setName('stop')
+  .setDescription('Stop music');
+
+export async function execute(interaction) {
+  player.stop();
+  interaction.reply('⏹️ Stopped');
+}
