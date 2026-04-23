@@ -14,3 +14,4 @@ client.on('messageCreate', async (message) => {
     message.reply(`🎶 Playing: ${query}`);
   }
 });
+console.log(message.context);
