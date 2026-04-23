@@ -78,3 +78,30 @@ if (message.content === '!resume') {
   player.unpause();
   message.reply('▶️ Resumed');
 }
+import { SlashCommandBuilder } from 'discord.js';
+import { playSong } from '../../music/manager.js';
+
+export const data = new SlashCommandBuilder()
+  .setName('play')
+  .setDescription('Play music')
+  .addStringOption(option =>
+    option
+      .setName('query')
+      .setDescription('Song name or URL')
+      .setRequired(true)
+  );
+
+export async function execute(interaction) {
+  const query = interaction.options.getString('query');
+
+  await interaction.deferReply();
+
+  const message = interaction; // reuse logic style
+  message.member = interaction.member;
+  message.guild = interaction.guild;
+  message.channel = interaction.channel;
+
+  await playSong(message, query);
+
+  interaction.editReply(`🎶 Added/Playing: ${query}`);
+}
