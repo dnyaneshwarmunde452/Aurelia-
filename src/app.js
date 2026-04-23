@@ -12,7 +12,12 @@ import { logger, startupLog, shutdownLog } from './utils/logger.js';
 import { checkBirthdays } from './services/birthdayService.js';
 import { checkGiveaways } from './services/giveawayService.js';
 import { loadCommands, registerCommands as registerSlashCommands } from './handlers/commandLoader.js';
+import { joinVoiceChannel, createAudioPlayer, createAudioResource } from '@discordjs/voice';
+import play from 'play-dl';
+import fetch from 'node-fetch';
+import spotify from 'spotify-url-info';
 
+const getPreview = spotify(fetch);
 class TitanBot extends Client {
   constructor() {
     super({
