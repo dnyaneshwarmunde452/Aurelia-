@@ -14,6 +14,25 @@ client.on('messageCreate', async (message) => {
     message.reply(`🎶 Playing: ${query}`);
   }
 });
-console.log(message.context);
-client.on('messageCreate',async (message) =>;
+client.on('messageCreate', async (message) => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith('!')) return;
+
+  const args = message.content.slice(1).trim().split(/ +/);
+  const cmd = args.shift().toLowerCase();
+
+  switch (cmd) {
+    case 'play':
+      message.reply(`🎶 Playing: ${args.join(' ')}`);
+      break;
+
+    case 'pause':
+      message.reply('⏸️ Paused');
+      break;
+
+    case 'stop':
+      message.reply('⏹️ Stopped');
+      break;
+  }
+});
 
