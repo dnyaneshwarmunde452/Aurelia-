@@ -38,4 +38,7 @@
   "spotify-url-info": "^3.2.0",
   "node-fetch": "^3.3.2"
   }
+  "engines": {
+    "nodes": "18.x"
+  }
 }
