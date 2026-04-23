@@ -16,13 +16,6 @@ import { joinVoiceChannel, createAudioPlayer, createAudioResource } from '@disco
 import play from 'play-dl';
 import fetch from 'node-fetch';
 import spotify from 'spotify-url-info';
-import {
-  joinVoiceChannel,
-  createAudioPlayer,
-  createAudioResource
-} from '@discordjs/voice';
-
-import play from 'play-dl';
 
 const getPreview = spotify(fetch);
 class TitanBot extends Client {
