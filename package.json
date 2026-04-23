@@ -35,8 +35,8 @@
   "@discordjs/voice": "^0.16.0",
   "yt-dlp-play": "^1.2.0",
   "ffmpeg-static": "^5.2.0",
-  "spotify-url-info": "^3.2.0",
-  "node-fetch": "^3.3.2"
+  "spotify-url-info": "^3.2.3",
+  "node-fetch": "^2.6.7"
   }
   "engines": {
     "nodes": "18.x"
