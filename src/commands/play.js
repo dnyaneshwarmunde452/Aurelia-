@@ -136,3 +136,7 @@ export async function execute(interaction) {
   player.stop();
   interaction.reply('⏹️ Stopped');
 }
+export const data = new SlashCommandBuilder()
+  .setName('play')
+  .setDescription('Play music');
+
